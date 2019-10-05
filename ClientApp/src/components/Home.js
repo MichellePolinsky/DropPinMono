@@ -26,40 +26,40 @@
 // }
 
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Header from './Header'
+// import Footer from './Footer'
+import Map from './Map'
+// import InputField from './InputField'
+// import UserLocation from './UserLocation'
 
-export class Home extends Component {
+class Home extends Component {
   render() {
     return (
-      <>
+      <div>
         <Header />
-        <section class="left-content">
+        <div>
           <section class="map_container">
             <div class="location_buttons">
-              <button class="enter_destination">Enter Destination</button>
+              {/* <form className="location-input"> */}
+              <input
+                type="button"
+                value="Enter Destination"
+                class="enter_destination"
+              ></input>
+              {/* </form> */}
               <button class="explore_nearby">Explore Nearby</button>
             </div>
           </section>
-        </section>
-        <section>
-          <div>
-            <h3>MAP GOES HERE!!!</h3>
-            {/* API Call */}
-          </div>
-        </section>
-        <section class="right-content">
-          <section class="img_container">
-            <div>Instagram logo?</div>
-            <div>
-              <h1>IMAGES GO HERE!!!</h1>
-              {/* API Call */}
-            </div>
-          </section>
-        </section>
-      </>
+          <Map />
+          {/* <article className="submit-form"> */}
+          {/* <InputField /> */}
+          {/* <UserLocation /> */}
+          {/* </article> */}
+          {/* </section> */}
+          {/* <Footer /> */}
+        </div>
+      </div>
     )
   }
 }
-
 export default Home

@@ -38,19 +38,19 @@ namespace DropPinMono.Controllers
 
     // Get photos by location
 
-    [HttpGet("{LatLong}")]
-    public ActionResult<Photos> GetPhotoLoca(int LatLong)
-    {
-      var photoLoca = context.Photo.FirstOrDefault(p => p.Id == LatLong);
-      if (photoLoca == null)
-      {
-        return NotFound();
-      }
-      else
-      {
-        return Ok(photoLoca);
-      }
-    }
+    // [HttpGet("{Lat}/{Long}")]
+    // public ActionResult<Photos> GetPhotoLoca(double Latitude, double Longitude)
+    // {
+    //   var photoLoca = context.Photo.Where(p => p.Latitude );
+    //   if (photoLoca == null)
+    //   {
+    //     return NotFound();
+    //   }
+    //   else
+    //   {
+    //     return Ok(photoLoca);
+    //   }
+    // }
 
 
     // Update Hearts Count
