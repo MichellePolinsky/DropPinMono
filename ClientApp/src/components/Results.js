@@ -5,8 +5,8 @@
 //   render() {
 //     return (
 //       <>
-//         <section class="left-content2">
-//           <section class="map_container2">
+//         <section className="left-content2">
+//           <section className="map_container2">
 //             <section>
 //               <div>
 //                 <h1>MAP GOES HERE!!!</h1>
@@ -15,8 +15,8 @@
 //             </section>
 //           </section>
 //         </section>
-//         <section class="right-content">
-//           <section class="results_container">
+//         <section className="right-content">
+//           <section className="results_container">
 //             <div>Go Explore</div>
 //             <div>
 //               <h1>LINKS TO SIGHT NAVIGATION HERE</h1>
