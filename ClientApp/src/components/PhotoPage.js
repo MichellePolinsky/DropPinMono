@@ -6,14 +6,7 @@ const PhotoPage = () => {
 
   const fetchData = async () => {
     const resp = await axios.get(
-      'https://api.unsplash.com/photos?page=5&per_page=8&query=',
-      {
-        // params: { query: term },
-        headers: {
-          Authorization:
-            'Client-ID a43c3e64f885a5c06277e2508ad66961ba50161b989c6c8f2c97cf6634b7eff7'
-        }
-      }
+      'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bdc5966fd5f89fb1632bbc40ef6470d1&lat=27.950575&lon=-82.457176&format=json&nojsoncallback=1'
     )
     console.log(resp.data)
     setDisplayPhotos(resp.data)
@@ -29,13 +22,9 @@ const PhotoPage = () => {
         {displayPhotos.map((displayPhotos, i) => {
           return (
             <div key={i}>
-              {displayPhotos.user.first_name}
-              <section className="img-items">
-                <img
-                  className="img-items"
-                  src={displayPhotos.urls.small}
-                  alt={''}
-                />
+              {displayPhotos}
+              <section className="imgs">
+                <img className="img-items" src={displayPhotos} alt={''} />
               </section>
             </div>
           )

@@ -7,14 +7,14 @@ html {
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
   min-height: 100%;
   /* MapStuff */
   /* background: whitesmoke; */
   color: #f8f8f8;
   font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
   /* padding: 0; */
-  /* -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: antialiased;
 }
 /* 
 header {
@@ -24,12 +24,12 @@ header {
 
 .logo-header {
   width: 100%;
-  height: 100px;
+  height: 120px;
   /* background: #c4c4c4; */
   background-color: #9bcecb;
-  border-radius: 15px;
   display: flex;
   justify-content: center;
+  padding-bottom: 1rem;
 }
 
 .images {
@@ -62,10 +62,10 @@ map {
 }
 
 .pad2 {
-  /* padding-top: 2rem; */
-  /* -webkit-box-sizing: border-box; */
-  /* -moz-box-sizing: border-box; */
-  /* box-sizing: border-box; */
+  padding-top: 0.25rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   height: 400px;
   width: auto;
 }
@@ -78,7 +78,8 @@ map {
 .map_container {
   display: flex;
   justify-content: center;
-  /* padding-top: 2rem; */
+  background-color: #9bcecb;
+  padding-bottom: 2rem;
 }
 
 .image-cont {
@@ -87,11 +88,14 @@ map {
   width: auto;
   display: flex;
   flex-wrap: wrap;
+  padding-top: 0.125rem;
+  margin-left: 1rem;
 }
 .img-items {
   width: 10rem;
   height: 10rem;
-  /* object-fit: cover; */
-  margin-left: 10px;
-  margin-right: 10px;
+  object-fit: cover;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 0;
 }

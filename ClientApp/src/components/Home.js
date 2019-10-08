@@ -10,14 +10,8 @@ class Home extends Component {
         <Header />
         <section className="map_container">
           <div className="location_buttons">
-            <input
-              type="search"
-              // value={searchTerm}
-              placeholder="Where to?"
-              className="enter_destination"
-            ></input>
-
-            <button className="explore_nearby">Go Explore</button>
+            <input className="typed" placeholder="Where To?"></input>
+            <button className="search">Go Explore</button>
           </div>
         </section>
 
