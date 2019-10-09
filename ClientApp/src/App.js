@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Home from './components/Home'
+import UnsplashHome from './components/UnsplashHome'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
       <Router>
         <Switch>
           {/* This next line makes map work */}
-          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/" component={UnsplashHome}></Route>
         </Switch>
       </Router>
     )
