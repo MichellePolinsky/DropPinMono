@@ -2,13 +2,13 @@ dotnet publish -c Release
 
 cp dockerfile ./bin/release/netcoreapp2.2/publish
 
-docker build -t sdg-template-image ./bin/release/netcoreapp2.2/publish
+docker build -t droppinhero ./bin/release/netcoreapp2.2/publish
 
-docker tag sdg-template-image registry.heroku.com/heroku-web-app/web
+docker tag droppinhero registry.heroku.com/droppinhero/web
 
-docker push registry.heroku.com/heroku-web-app/web
+docker push registry.heroku.com/droppinhero/web
 
-heroku container:release web -a heroku-web-app
+heroku container:release web -a droppinhero
 
-# sudo chmod 755 deploy.sh
+# sudo chmod 755 deploy.shsudo chmod 755 deploy.sh
 # ./deploy.sh
