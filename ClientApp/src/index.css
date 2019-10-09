@@ -99,3 +99,9 @@ map {
   margin-right: 8px;
   margin-top: 0;
 }
+
+.img-button {
+  outline: none;
+  margin: 5px;
+  background-color: #9bcecb;
+}
