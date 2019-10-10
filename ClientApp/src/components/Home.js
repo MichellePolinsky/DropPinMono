@@ -1,13 +1,13 @@
 import Header from './Header'
-import Map from './Map'
+import HooksMap from './HooksMap'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const LocationSearch = () => {
+const LocationSearch = props => {
   const [searchTerm, setSearchTerm] = useState('')
   // const [searchResults, setSearchResults] = useState([])
   const [displayPhotos, setDisplayPhotos] = useState([])
-  const [searchGeo, setSearchGeo] = useState([])
+  const [searchGeo, setSearchGeo] = useState(null)
 
   const fetchData = async () => {
     if (searchTerm) {
@@ -19,9 +19,9 @@ const LocationSearch = () => {
     }
   }
 
-  const geoGet = async () => {
+  const geoGet = async photoId => {
     const resp = await axios.get(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=bdc5966fd5f89fb1632bbc40ef6470d1&photo_id=7728606590&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=bdc5966fd5f89fb1632bbc40ef6470d1&photo_id=${photoId}&format=json&nojsoncallback=1`
     )
     console.log(resp.data, 'geo get')
     setSearchGeo(resp.data.photo.location)
@@ -48,7 +48,7 @@ const LocationSearch = () => {
             </button>
           </div>
         </section>
-        <Map />
+        <HooksMap selectedPhoto={searchGeo} />
       </div>
       <section className="image-cont">
         {displayPhotos.map((photo, i) => {
@@ -56,7 +56,7 @@ const LocationSearch = () => {
             <div key={i}>
               {photo.id}
               <section className="imgs">
-                <button className="img-button" onClick={geoGet}>
+                <button className="img-button" onClick={() => geoGet(photo.id)}>
                   <img
                     className="img-items"
                     src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_s.jpg`}
