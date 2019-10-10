@@ -7,12 +7,15 @@ const LocationSearch = props => {
   const [searchTerm, setSearchTerm] = useState('')
   // const [searchResults, setSearchResults] = useState([])
   const [displayPhotos, setDisplayPhotos] = useState([])
-  const [searchGeo, setSearchGeo] = useState(null)
+  const [searchGeo, setSearchGeo] = useState({
+    latitude: 27.770773,
+    longitude: -82.66352
+  })
 
   const fetchData = async () => {
     if (searchTerm) {
       const resp = await axios.get(
-        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bdc5966fd5f89fb1632bbc40ef6470d1&tags=${searchTerm}&per_page=7&format=json&nojsoncallback=1`
+        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bdc5966fd5f89fb1632bbc40ef6470d1&tags=${searchTerm}&per_page=35&format=json&nojsoncallback=1`
       )
       console.log(resp.data)
       setDisplayPhotos(resp.data.photos.photo)

@@ -1,5 +1,5 @@
 // import Header from './Header'
-// import Map from './Map'
+// import HooksMap from './HooksMap'
 // import React, { useEffect, useState } from 'react'
 // import axios from 'axios'
 
@@ -45,7 +45,7 @@
 //             </button>
 //           </div>
 //         </section>
-//         <Map />
+//         <HooksMap />
 //       </div>
 //       <section className="image-cont">
 //         {displayPhotos.map((displayPhotos, i) => {

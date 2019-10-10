@@ -3,16 +3,22 @@ import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl'
 import Pin from '../Images/Pin.png'
 
 export default function HooksMap(props) {
+  console.log({ props })
   const [viewport, setViewport] = useState({
-    latitude: 27.724722,
-    longitude: -82.741943,
+    latitude: props.selectedPhoto.latitude,
+    longitude: props.selectedPhoto.longitude,
     zoom: 15,
-    bearing: 0,
-    pitch: 0,
     width: '100%',
     height: '100%'
   })
-  console.log(props.selectedPhoto)
+  useEffect(() => {
+    setViewport(prev => {
+      prev.latitude = parseFloat(props.selectedPhoto.latitude)
+      prev.longitude = parseFloat(props.selectedPhoto.longitude)
+      return { ...prev }
+    })
+  }, [props])
+  console.log(viewport)
   return (
     <div id="map" className="map pad2">
       <ReactMapGL
@@ -30,7 +36,7 @@ export default function HooksMap(props) {
             latitude={parseFloat(props.selectedPhoto.latitude)}
             longitude={parseFloat(props.selectedPhoto.longitude)}
           >
-            here
+            <img className="pinDrop" src={Pin}></img>
           </Marker>
         )}
       </ReactMapGL>

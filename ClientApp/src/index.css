@@ -90,6 +90,7 @@ map {
   flex-wrap: wrap;
   padding-top: 0.125rem;
   margin-left: 1rem;
+  /* background-color: #9bcecb; */
 }
 .img-items {
   width: 10rem;
@@ -102,6 +103,12 @@ map {
 
 .img-button {
   outline: none;
+  border: none;
   margin: 5px;
-  background-color: #9bcecb;
+  /* background-color: #9bcecb; */
+}
+
+.pinDrop {
+  height: 2rem;
+  width: 2rem;
 }
