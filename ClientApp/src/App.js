@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Home from './components/Home'
-// import UnsplashHome from './components/UnsplashHome'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import PhotoForm from './components/PhotoForm'
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          {/* <Route exact path="/" component={UnsplashHome}></Route> */}
+          <Route path="/PhotoForm" component={PhotoForm} />
         </Switch>
       </Router>
     )

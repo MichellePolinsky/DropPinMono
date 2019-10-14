@@ -6,9 +6,14 @@ import App from '../App'
 const Header = () => {
   return (
     <Router>
-      <div className="logo-header">
-        <img className="images" src={Logo} alt="Drop Pin Logo" />
-      </div>
+      <main className="top">
+        <section className="center">
+          <div className="logo-header">
+            <img className="images" src={Logo} alt="Drop Pin Logo" />
+          </div>
+        </section>
+      </main>
+
       <Switch>
         <Route exact path="/" component={App.js} />
       </Switch>

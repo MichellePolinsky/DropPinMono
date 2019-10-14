@@ -10,8 +10,8 @@ namespace DropPinMono.Models
     public string Location { get; set; }
 
     // public int LatLong { get; set; }
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
+    public double? Latitude { get; set; }
+    public double? Longitude { get; set; }
     public string Tag { get; set; }
 
     public bool Pinned { get; set; }

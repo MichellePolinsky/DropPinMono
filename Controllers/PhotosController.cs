@@ -52,6 +52,15 @@ namespace DropPinMono.Controllers
     //   }
     // }
 
+    [HttpGet("{searchTerm}")]
+    public ActionResult SearchPhotos(string searchTerm)
+    {
+      var photos = context.Photo.Where(p => p.Location.Contains(searchTerm));
+
+      return Ok(photos);
+
+    }
+
 
     // Update Hearts Count
 
