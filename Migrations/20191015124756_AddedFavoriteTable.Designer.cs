@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using droppinmono;
@@ -9,9 +10,10 @@ using droppinmono;
 namespace sdgreacttemplate.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191015124756_AddedFavoriteTable")]
+    partial class AddedFavoriteTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,30 +21,12 @@ namespace sdgreacttemplate.Migrations
                 .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("DropPinMono.Models.FavoritedPhoto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("PhotosId");
-
-                    b.Property<string>("UID");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PhotosId");
-
-                    b.ToTable("FavoritedPhotos");
-                });
-
             modelBuilder.Entity("DropPinMono.Models.Photos", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateCreated");
-
-                    b.Property<int?>("FavoritedPhotoId");
 
                     b.Property<int>("Hearts");
 
@@ -64,8 +48,6 @@ namespace sdgreacttemplate.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FavoritedPhotoId");
-
                     b.HasIndex("UsersId");
 
                     b.ToTable("Photo");
@@ -85,20 +67,8 @@ namespace sdgreacttemplate.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("DropPinMono.Models.FavoritedPhoto", b =>
-                {
-                    b.HasOne("DropPinMono.Models.Photos", "Photos")
-                        .WithMany()
-                        .HasForeignKey("PhotosId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("DropPinMono.Models.Photos", b =>
                 {
-                    b.HasOne("DropPinMono.Models.FavoritedPhoto")
-                        .WithMany("Pins")
-                        .HasForeignKey("FavoritedPhotoId");
-
                     b.HasOne("DropPinMono.Models.Users")
                         .WithMany("Photos")
                         .HasForeignKey("UsersId");

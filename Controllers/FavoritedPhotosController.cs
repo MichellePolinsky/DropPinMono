@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using droppinmono;
 using DropPinMono.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DropPinMono.Controllers
 {
@@ -19,33 +21,46 @@ namespace DropPinMono.Controllers
 
 
     [HttpPost]
-    public ActionResult<Users> SavePins([FromBody]Users entry)
+    public ActionResult<FavoritedPhoto> SavePins([FromBody]FavoritedPhoto entry)
     {
-      context.User.Add(entry);
+      context.FavoritedPhotos.Add(entry);
       context.SaveChanges();
       return entry;
     }
 
-    // Get User
+    // Get Pins
 
 
     [HttpGet("{id}")]
-    public ActionResult<Users> GetUser(int id)
+    public ActionResult<FavoritedPhoto> GetPin(int id)
     {
-      var findUser = context.User.FirstOrDefault(q => q.Id == id);
-      if (findUser == null)
+      var findPin = context.FavoritedPhotos.FirstOrDefault(q => q.Id == id);
+      if (findPin == null)
       {
         return NotFound();
       }
       else
       {
-        return Ok(findUser);
+        return Ok(findPin);
       }
-
-
     }
 
+    // Get all photos
 
-
+    [HttpGet]
+    public ActionResult<IEnumerable<FavoritedPhoto>> GetAllPins()
+    {
+      var gallery = context.FavoritedPhotos.Include(i => i.Photos).OrderByDescending(p => p.Id);
+      return gallery.ToList();
+    }
   }
 }
+
+
+
+
+
+
+
+
+

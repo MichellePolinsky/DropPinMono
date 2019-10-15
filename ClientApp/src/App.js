@@ -1,8 +1,8 @@
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import Home from './components/Home'
-
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import PhotoForm from './components/PhotoForm'
+import PinPage from './components/PinPage'
 
 class App extends Component {
   render() {
@@ -10,7 +10,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route path="/PhotoForm" component={PhotoForm} />
+          <Route exact path="/PhotoForm" component={PhotoForm} />
+          <Route exact path="/PinPage" component={PinPage} />
         </Switch>
       </Router>
     )

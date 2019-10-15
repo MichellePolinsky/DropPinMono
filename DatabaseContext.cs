@@ -46,5 +46,10 @@ namespace droppinmono
     }
     public DbSet<Users> User { get; set; }
     public DbSet<Photos> Photo { get; set; }
+
+    public DbSet<FavoritedPhoto> FavoritedPhotos { get; set; }
   }
 }
+
+
+

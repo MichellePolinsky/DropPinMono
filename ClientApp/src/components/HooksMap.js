@@ -7,7 +7,7 @@ export default function HooksMap(props) {
   const [viewport, setViewport] = useState({
     latitude: props.selectedPhoto.latitude,
     longitude: props.selectedPhoto.longitude,
-    zoom: 15,
+    zoom: 12,
     width: '100%',
     height: '100%'
   })
@@ -20,7 +20,7 @@ export default function HooksMap(props) {
   }, [props])
   console.log(viewport)
   return (
-    <div id="map" className="map pad2">
+    <div className="map">
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={

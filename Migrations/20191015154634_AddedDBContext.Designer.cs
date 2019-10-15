@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using droppinmono;
@@ -9,9 +10,10 @@ using droppinmono;
 namespace sdgreacttemplate.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191015154634_AddedDBContext")]
+    partial class AddedDBContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +44,6 @@ namespace sdgreacttemplate.Migrations
 
                     b.Property<DateTime>("DateCreated");
 
-                    b.Property<int?>("FavoritedPhotoId");
-
                     b.Property<int>("Hearts");
 
                     b.Property<double?>("Latitude");
@@ -63,8 +63,6 @@ namespace sdgreacttemplate.Migrations
                     b.Property<int?>("UsersId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FavoritedPhotoId");
 
                     b.HasIndex("UsersId");
 
@@ -95,10 +93,6 @@ namespace sdgreacttemplate.Migrations
 
             modelBuilder.Entity("DropPinMono.Models.Photos", b =>
                 {
-                    b.HasOne("DropPinMono.Models.FavoritedPhoto")
-                        .WithMany("Pins")
-                        .HasForeignKey("FavoritedPhotoId");
-
                     b.HasOne("DropPinMono.Models.Users")
                         .WithMany("Photos")
                         .HasForeignKey("UsersId");

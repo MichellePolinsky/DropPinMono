@@ -36,21 +36,7 @@ namespace DropPinMono.Controllers
       return gallery.ToList();
     }
 
-    // Get photos by location
 
-    // [HttpGet("{Lat}/{Long}")]
-    // public ActionResult<Photos> GetPhotoLoca(double Latitude, double Longitude)
-    // {
-    //   var photoLoca = context.Photo.Where(p => p.Latitude );
-    //   if (photoLoca == null)
-    //   {
-    //     return NotFound();
-    //   }
-    //   else
-    //   {
-    //     return Ok(photoLoca);
-    //   }
-    // }
 
     [HttpGet("{searchTerm}")]
     public ActionResult SearchPhotos(string searchTerm)

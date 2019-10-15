@@ -1,8 +1,11 @@
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Header from './Header'
 import HooksMap from './HooksMap'
-import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Login from './Login'
+import Pin from '../Images/Pin.png'
+import PinPage from './PinPage'
 
 const LocationSearch = props => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -11,6 +14,8 @@ const LocationSearch = props => {
     latitude: 27.770773,
     longitude: -82.66352
   })
+  const [pins, setPins] = useState([])
+
   const fetchData = async () => {
     if (searchTerm) {
       const resp = await axios.get(`/api/Photos/${searchTerm}`)
@@ -19,7 +24,7 @@ const LocationSearch = props => {
     }
   }
 
-  const geoGet = photo => {
+  const geoGet = async photo => {
     console.log(photo)
     console.log({
       latitude: photo.latitude,
@@ -29,10 +34,19 @@ const LocationSearch = props => {
       latitude: photo.latitude,
       longitude: photo.longitude
     })
+    const resp = await axios.post('/api/favoritedPhotos', {
+      photosId: photo.id
+      // UID: "wtCXw0bEjXhm6hk03rXf6qGHcKP2"
+    })
+    console.log(pins)
   }
+  // API to the POST
+
+  const postPins = async () => {}
 
   useEffect(() => {
     fetchData()
+    // postPins()
   }, [])
 
   return (
@@ -51,6 +65,10 @@ const LocationSearch = props => {
             <button className="search" onClick={fetchData}>
               Go Explore
             </button>
+            <Link className="search" to="/PinPage">
+              <button>Pins</button>
+              {/* <img className="pinLink" src={Pin} alt="" /> */}
+            </Link>
           </div>
         </section>
         <HooksMap selectedPhoto={searchGeo} />
@@ -74,4 +92,5 @@ const LocationSearch = props => {
     </>
   )
 }
+
 export default LocationSearch

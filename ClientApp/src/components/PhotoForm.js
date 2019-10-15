@@ -13,7 +13,7 @@ const PhotoForm = () => {
   const [Hearts, setHearts] = useState('')
 
   const submitForm = async e => {
-    e.preventDefault()
+    // e.preventDefault()
     // do our post to our API
 
     const resp = await axios.post('https://localhost:5001/api/Photos', {

@@ -1,23 +1,18 @@
 import React from 'react'
 import Logo from '../Images/Logo.png'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import App from '../App'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <Router>
-      <main className="top">
-        <section className="center">
-          <div className="logo-header">
+    <main className="top">
+      <section className="center">
+        <div className="logo-header">
+          <Link to="/">
             <img className="images" src={Logo} alt="Drop Pin Logo" />
-          </div>
-        </section>
-      </main>
-
-      <Switch>
-        <Route exact path="/" component={App.js} />
-      </Switch>
-    </Router>
+          </Link>
+        </div>
+      </section>
+    </main>
   )
 }
 
