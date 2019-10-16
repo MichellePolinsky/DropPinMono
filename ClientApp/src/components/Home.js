@@ -4,8 +4,6 @@ import Header from './Header'
 import HooksMap from './HooksMap'
 import axios from 'axios'
 import Login from './Login'
-import Pin from '../Images/Pin.png'
-import PinPage from './PinPage'
 import UnsplashHome from './UnsplashHome'
 
 const LocationSearch = props => {
@@ -16,6 +14,7 @@ const LocationSearch = props => {
     longitude: -82.66352
   })
   const [pins, setPins] = useState([])
+  const [trans, setTrans] = useState([])
 
   const fetchData = async () => {
     if (searchTerm) {
@@ -23,6 +22,18 @@ const LocationSearch = props => {
       console.log(resp.data)
       setDisplayPhotos(resp.data)
     }
+  }
+
+  const transferData = async () => {
+    axios.get('/api/Photos').then(resp => {
+      resp.data.forEach(photo => {
+        axios
+          .post('https://droppinhero.herokuapp.com/api/Photos', photo)
+          .then(resp => {
+            console.log(resp)
+          })
+      })
+    })
   }
 
   const geoGet = async photo => {
@@ -47,6 +58,7 @@ const LocationSearch = props => {
 
   useEffect(() => {
     fetchData()
+
     // postPins()
   }, [])
 
@@ -57,6 +69,7 @@ const LocationSearch = props => {
         <Login />
         <section className="map_container">
           <div className="location_buttons">
+            {/* <button onClick={transferData}>do the thing</button> */}
             <input
               className="typed"
               placeholder="Where To?"
