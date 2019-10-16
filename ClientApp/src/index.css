@@ -137,6 +137,26 @@ button {
   -webkit-overflow-scrolling: touch;
   padding-top: 34rem;
 }
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 0.125rem;
+  -webkit-overflow-scrolling: touch;
+}
+.unsplash-img {
+  display: flex;
+  justify-content: space-around;
+  width: 15rem;
+  height: 17rem;
+  object-fit: cover;
+  margin-right: 20px;
+  margin-top: 0;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
 .img-items {
   display: flex;
   justify-content: space-between;
@@ -149,10 +169,22 @@ button {
   display: inline-block;
   margin-bottom: 2rem;
 }
+.div {
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
+  height: 17rem;
+  object-fit: cover;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
 .img-items:hover {
-  -moz-box-shadow: 0 0 86px 10px #0a827c;
-  -webkit-box-shadow: 0 0 86px 10px #0a827c;
-  box-shadow: 0 0 86px 10px #0a827c;
+  -moz-box-shadow: 0 0 86px 10px #f8d268;
+  -webkit-box-shadow: 0 0 86px 10px #f8d268;
+  box-shadow: 0 0 86px 10px #f8d268;
 }
 
 .img-button {

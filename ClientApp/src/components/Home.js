@@ -6,6 +6,7 @@ import axios from 'axios'
 import Login from './Login'
 import Pin from '../Images/Pin.png'
 import PinPage from './PinPage'
+import UnsplashHome from './UnsplashHome'
 
 const LocationSearch = props => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -88,6 +89,7 @@ const LocationSearch = props => {
             </div>
           )
         })}
+        <UnsplashHome />
       </section>
     </>
   )

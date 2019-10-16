@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import config from './config/fbConfig'
-// import Axios from 'axios'
 
 const Login = () => {
   if (!firebase.apps.length) {
@@ -24,14 +23,7 @@ const Login = () => {
       })
   }
 
-  // const saveUser = async result => {
-  //   const resp = await Axios.post('/api/', {
-  //     // User Model Info?
-  //   })
-  //   setId(resp.data)
-  //   console.log(resp.data)
-  // }
-  const signout = () => {
+  const signOut = () => {
     firebase
       .auth()
       .signOut()
@@ -50,13 +42,13 @@ const Login = () => {
       <div className="loginButtons">
         <div>
           <button onClick={() => signInWithPopup()} type="">
-            Sign in
+            Sign In
           </button>
         </div>
 
         <div>
-          <button onClick={() => signout()} type="">
-            Signout
+          <button onClick={() => signOut()} type="">
+            Sign Out
           </button>
         </div>
       </div>
