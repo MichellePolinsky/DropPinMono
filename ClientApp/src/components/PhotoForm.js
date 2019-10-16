@@ -15,7 +15,7 @@ const PhotoForm = () => {
   const submitForm = async e => {
     // do our post to our API
 
-    const resp = await axios.post('https://localhost:5001/api/Photos', {
+    const resp = await axios.post('/api/Photos', {
       Name: name,
       Url: Url,
       Location: Location,
