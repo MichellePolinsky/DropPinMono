@@ -29,7 +29,7 @@ const Login = () => {
       .signOut()
       .then(function() {
         // Redirect to google sign out.
-        window.location.assign('https://localhost:5001/')
+        window.location.assign('https://droppinhero.herokuapp.com')
       })
       .catch(function(error) {
         window.alert('You signed out')
