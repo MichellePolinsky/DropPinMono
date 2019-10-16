@@ -7,7 +7,7 @@ const Header = () => {
     <main className="top">
       <section className="center">
         <div className="logo-header">
-          <Link to="/">
+          <Link className="home-link" to="/">
             <img className="images" src={Logo} alt="Drop Pin Logo" />
           </Link>
         </div>

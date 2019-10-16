@@ -66,7 +66,7 @@ const LocationSearch = props => {
               Go Explore
             </button>
             <Link className="search" to="/PinPage">
-              <button>Pins</button>
+              <button className="pin-button">Pins</button>
               {/* <img className="pinLink" src={Pin} alt="" /> */}
             </Link>
           </div>
