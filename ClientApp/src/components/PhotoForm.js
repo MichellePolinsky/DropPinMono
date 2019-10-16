@@ -13,7 +13,6 @@ const PhotoForm = () => {
   const [Hearts, setHearts] = useState('')
 
   const submitForm = async e => {
-    // e.preventDefault()
     // do our post to our API
 
     const resp = await axios.post('https://localhost:5001/api/Photos', {
@@ -23,8 +22,6 @@ const PhotoForm = () => {
       Latitude: Latitude,
       Longitude: Longitude,
       Tag: Tag,
-      // Pinned: Pinned,
-      // DateCreated: DateCreated,
       Hearts: Hearts
     })
     return resp
