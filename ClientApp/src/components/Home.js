@@ -24,18 +24,6 @@ const LocationSearch = props => {
     }
   }
 
-  const transferData = async () => {
-    axios.get('/api/Photos').then(resp => {
-      resp.data.forEach(photo => {
-        axios
-          .post('https://droppinhero.herokuapp.com/api/Photos', photo)
-          .then(resp => {
-            console.log(resp)
-          })
-      })
-    })
-  }
-
   const geoGet = async photo => {
     console.log(photo)
     console.log({
@@ -58,8 +46,6 @@ const LocationSearch = props => {
 
   useEffect(() => {
     fetchData()
-
-    // postPins()
   }, [])
 
   return (
@@ -69,7 +55,6 @@ const LocationSearch = props => {
         <Login />
         <section className="map_container">
           <div className="location_buttons">
-            {/* <button onClick={transferData}>do the thing</button> */}
             <input
               className="typed"
               placeholder="Where To?"
